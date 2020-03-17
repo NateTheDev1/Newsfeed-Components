@@ -204,4 +204,6 @@ newDiv[3].addEventListener("click", e => {
     thirdParagraph: ""
   };
   articles.appendChild(articleCreator(newArticle));
+  newDiv[1].value = "";
+  newDiv[2].value = "";
 });
