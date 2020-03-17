@@ -190,3 +190,18 @@ let articleData = data.map(a => {
 articleData.forEach(a => {
   articles.appendChild(a);
 });
+
+// New Form
+const oldDiv = document.querySelector(".new-form");
+const newDiv = Array.from(oldDiv.children);
+
+newDiv[3].addEventListener("click", e => {
+  const newArticle = {
+    title: newDiv[1].value,
+    date: new Date(),
+    firstParagraph: newDiv[2].value,
+    secondParagraph: "",
+    thirdParagraph: ""
+  };
+  articles.appendChild(articleCreator(newArticle));
+});
