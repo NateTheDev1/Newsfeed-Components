@@ -165,6 +165,14 @@ const articleCreator = article => {
     div.classList.toggle("article-open");
   });
 
+  let button = document.createElement("button");
+  button.textContent = "Read";
+  button.classList.add("read-btn");
+  button.addEventListener("click", e => {
+    div.style.display = "none";
+  });
+  elements.push(button);
+
   elements.push(span);
   elements.forEach(e => {
     div.appendChild(e);

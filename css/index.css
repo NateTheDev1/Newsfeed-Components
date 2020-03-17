@@ -74,7 +74,14 @@
   background-color: white;
 }
 .article-open {
-  height: 400px;
+  height: 600px;
+}
+.read-btn {
+  color: white;
+  background: black;
+  width: 150px;
+  height: 50px;
+  border: 1px solid white;
 }
 .menu-button {
   position: absolute;
