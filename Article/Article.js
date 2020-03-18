@@ -158,11 +158,16 @@ const articleCreator = article => {
 
   let span = document.createElement("span");
   span.classList.add("expandButton");
-  span.textContent = "Expand";
+  span.textContent = "Click to Expand";
 
   span.addEventListener("click", e => {
     console.log("Clicked");
     div.classList.toggle("article-open");
+    if (span.textContent === "Click to Close") {
+      span.textContent = "Click to Expand";
+    } else {
+      span.textContent = "Click to Close";
+    }
   });
 
   let button = document.createElement("button");
