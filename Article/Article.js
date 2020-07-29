@@ -3,7 +3,7 @@
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
-    date: 'Nov 5th, 2018',
+    date: "Nov 5th, 2018",
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
         moff wicket tatooine luke.Solo wampa wampa calrissian yoda moff.Darth grievous darth gonk darth hutt.Darth baba skywalker
         watto fett jango maul han.Mon ewok sidious sidious lando kenobi grievous gamorrean solo.Yoda wedge utapau darth calamari.
@@ -23,8 +23,8 @@ const data = [
         moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
   },
   {
-    title: 'Javascript and You, ES6',
-    date: 'May 7th, 2019',
+    title: "Javascript and You, ES6",
+    date: "May 7th, 2019",
     firstParagraph: `Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost
         Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot
         snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods
@@ -43,8 +43,8 @@ const data = [
         sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
   },
   {
-    title: 'React vs Angular vs Vue',
-    date: 'June 7th, 2019',
+    title: "React vs Angular vs Vue",
+    date: "June 7th, 2019",
     firstParagraph: `Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard Lorem ipsum dolor sit amet,
@@ -71,8 +71,24 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
-    title: 'Professional Software Development in 2019',
-    date: 'Jan 1st, 2019',
+    title: "Professional Software Development in 2019",
+    date: "Jan 1st, 2019",
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Testing 1,2,3",
+    date: "3/16/2020",
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
           Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
@@ -112,3 +128,87 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const articleCreator = article => {
+  let elements = [];
+
+  let div = document.createElement("div");
+  div.classList.add("article");
+
+  let h2 = document.createElement("h2");
+  h2.textContent = article.title;
+  elements.push(h2);
+
+  let p = document.createElement("p");
+  p.classList.add("date");
+  p.textContent = article.date;
+  elements.push(p);
+
+  let p1 = document.createElement("p");
+  p1.textContent = article.firstParagraph;
+  elements.push(p1);
+
+  let p2 = document.createElement("p");
+  p2.textContent = article.secondParagraph;
+  elements.push(p2);
+
+  let p3 = document.createElement("p");
+  p3.textContent = article.thirdParagraph;
+  elements.push(p3);
+
+  let span = document.createElement("span");
+  span.classList.add("expandButton");
+  span.textContent = "Click to Expand";
+
+  span.addEventListener("click", e => {
+    console.log("Clicked");
+    div.classList.toggle("article-open");
+    if (span.textContent === "Click to Close") {
+      span.textContent = "Click to Expand";
+    } else {
+      span.textContent = "Click to Close";
+    }
+  });
+
+  let button = document.createElement("button");
+  button.textContent = "Read";
+  button.classList.add("read-btn");
+  button.addEventListener("click", e => {
+    div.style.display = "none";
+  });
+  elements.push(button);
+
+  elements.push(span);
+  elements.forEach(e => {
+    div.appendChild(e);
+  });
+  console.log(div);
+  return div;
+};
+
+const articles = document.querySelector(".articles");
+
+let articleData = data.map(a => {
+  return articleCreator(a);
+});
+
+articleData.forEach(a => {
+  articles.appendChild(a);
+});
+
+// New Form
+const oldDiv = document.querySelector(".new-form");
+const newDiv = Array.from(oldDiv.children);
+
+newDiv[3].addEventListener("click", e => {
+  const newArticle = {
+    title: newDiv[1].value,
+    date: new Date(),
+    firstParagraph: newDiv[2].value,
+    secondParagraph: "",
+    thirdParagraph: ""
+  };
+  articles.appendChild(articleCreator(newArticle));
+  newDiv[1].value = "";
+  newDiv[2].value = "";
+});
